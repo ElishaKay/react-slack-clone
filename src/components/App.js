@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import './App.css';
 import ColorPanel from './ColorPanel';
 import SidePanel from './SidePanel';
-import Messages from './Messages';
+import Messages from './Messages/Messages';
 import MetaPanel from './MetaPanel';
 
 const App = ({ currentUser, currentChannel }) => (
   <Grid columns="equal" className="app" style={{background: "#eee"}}>
     <ColorPanel />
     <SidePanel 
-      currentUser={currentUser}
-      // currentUser={currentUser && currentUser.uid}
+      key={currentUser && currentUser.uid}
+      currentUser={currentUser}      
     />
     <Grid.Column style={{ marginLeft: 320 }}>
       <Messages
