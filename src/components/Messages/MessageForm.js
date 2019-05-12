@@ -30,7 +30,6 @@ export default class MessageForm extends Component {
   createMessage = (fileUrl = null) => {
     const message = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
-      content: message,
       user: {
         id: this.state.user.uid,
         name: this.state.user.displayName,
@@ -114,7 +113,6 @@ export default class MessageForm extends Component {
 
   sendFileMessage = (fileUrl, ref, pathToUpload) => {
     console.log(`fileUrl: ${fileUrl}, ref: ${ref}, pathToUpload: ${pathToUpload}`)
-
 
     ref.child(pathToUpload)
       .push()

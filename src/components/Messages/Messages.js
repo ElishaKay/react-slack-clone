@@ -18,6 +18,8 @@ export default class Messages extends Component {
   componentDidMount(){
     const {channel, user} = this.state;
 
+    console.log('messages in Messages.js Component: ', this.state.messages);
+
     if(channel && user){
       this.addListeners(channel.id);
     }
