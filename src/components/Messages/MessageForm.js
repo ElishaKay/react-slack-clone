@@ -24,7 +24,6 @@ export default class MessageForm extends Component {
 
   createMessage = () => {
     const {user, message} = this.state;
-    console.log('clicked create message with user:', user, 'and message =',message)
 
     const newMessage = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -63,6 +62,10 @@ export default class MessageForm extends Component {
         errors: this.state.errors.concat({ message: 'Add a message.'})
       })
     }
+  }
+
+  uploadFile = (file, metadata) => {
+    console.log(file, metadata)
   }
 
   render() {
@@ -105,6 +108,7 @@ export default class MessageForm extends Component {
           <FileModal
             modal={modal}
             closeModal={this.closeModal}
+            uploadFile={this.uploadFile}
           />
         </Button.Group>
       </Segment>
